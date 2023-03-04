@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  socket-service:
+    container_name: socket-service
+    build:
+      context: .
+    expose:
+      - 8080
+    ports:
+      - '8080:8080'
+    environment:
+      - PORT=8080
+      - KEY_CLOAK_STARTER_HOST=http://keycloak-instance:8080/realms/express
+    command: yarn dev
